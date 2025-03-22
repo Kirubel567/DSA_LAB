@@ -2,8 +2,10 @@
 #include <string> 
 using namespace std; 
 
+
+//overloading 
 int add(int a, int b){
-    return a+b; 
+    return a + b; 
 }
 double add(double a, int b){
     return a + b; 
@@ -11,10 +13,22 @@ double add(double a, int b){
 double add(double a, double b, double c){
     return a + b + c; 
 }
+//namespace 
+namespace Sum {
+    int x = 2; 
+    int y = 33; 
+    int z = 23; 
+    int value(){
+        return x + y + z; 
+    }
+}
+
+// template usage
 template <typename customtype, typename custom2 , typename custom3, typename custom4> // this "customtype" is a generic datatype
 customtype add(customtype a, custom2 b, custom3 c, custom4 d){
     return a + b + c + d; 
 } 
+//struct
 struct Pets{
     string owner; 
     int age; 
@@ -23,6 +37,13 @@ struct Pets{
 } strong; 
 
 int main(){
+    using Sum::x; 
+    using Sum::y; 
+    
+    cout << x << endl; 
+    cout << y << endl;
+    cout << Sum::value() << endl; 
+    cout << Sum::z << endl; 
 
     Pets maya; 
     Pets mechal; 
@@ -36,10 +57,10 @@ int main(){
     strong.owner = "martha"; 
     strong.age = 32; 
     strong.sex = "male"; 
+
     cout << maya.owner << endl; 
     cout << mechal.age << endl; 
     cout << strong.sex << endl; 
-
 
 
     cout << add(1, 2, 3) << endl; 
